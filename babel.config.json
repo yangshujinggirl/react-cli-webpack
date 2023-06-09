@@ -1,0 +1,28 @@
+//使用@babel/preset-react
+// {
+//     "presets": [
+//         [
+//             "@babel/preset-react",
+//             {
+//                 "useBuiltIns": "usage",
+//                 "corejs": 3,
+//                 "runtime": "automatic"
+//             }
+//         ]
+//     ]
+// }
+//使用babel-preset-react-app即可以编译react jsx语法，又能做js兼容,按需引入
+{
+    "presets": [["react-app", { "runtime": "automatic" }]]
+    // "plugins": [
+    //     [
+    //         "prismjs",
+    //         {
+    //             "languages": ["javascript", "css", "markup"],
+    //             "plugins": ["line-numbers"],
+    //             "theme": "twilight",
+    //             "css": true
+    //         }
+    //     ]
+    // ]
+}
