@@ -58,7 +58,7 @@ const ThreadMod = ()=>{
             <h4>二：渲染进程的组成</h4>
             <ListCard title="1）GUI渲染线程">
               <p>
-                主要负责渲染页面的,当浏览器收到响应的html后，该线程开始解析HTML文档构建DOM树，解析CSS文件构建CSSOM，合并构成渲染render树，并计算布局样式，绘制在页面上(HTML解析规则，CSS解析规则，渲染流程细节)
+                主要负责渲染页面的,当浏览器收到响应的html后，该线程开始解析HTML文档构建DOM树，解析CSS文件构建CSSOM，合并构成渲染render树，并计算布局样式（也叫Layout环节），以及绘制顺序（绘制顺序不是根据节点的层级来的，有的z-index层级不同，渲染顺序也不同），绘制在页面上(HTML解析规则，CSS解析规则，渲染流程细节)
                 当界面样式被修改触发回流reflow和repaint重绘时，该线程就会执行重新计算，重新绘制，是前端开发需要着重优化的点。
               </p>
               <ul>
@@ -129,9 +129,9 @@ const ThreadMod = ()=>{
                 <li>1）解析HTML建立DOM树</li>
                 <li>2）解析CSS构建CSS树</li>
                 <li>3）将DOM树和CSS规则树合并后生产Render树</li>
-                <li>4）Layout/reflow：布局render树（Layout/reflow），有了Render Tree，开始复杂计算元素的大小、位置等信息</li>
-                <li>5）paint：开始绘制render树（paint），绘制页面像素信息，把内容画到屏幕上</li>
-                <li>6）浏览器<span style={{color:'red'}}>主进程</span>将<span style={{color:'red'}}>默认图层和复合图层</span>交给<span style={{color:'red'}}>GPU进程</span>，GPU进程再将各个图层合成（composite），最后显示出页面</li>
+                <li>4）Layout/reflow：复杂计算元素的大小、位置等信息，生成LayOut Tree（Layout/reflow）</li>
+                <li>5）paint：生成绘制顺序表，绘制页面像素信息，把内容画到屏幕上</li>
+                <li>6）浏览器<span style={{color:'red'}}>主线程</span>将<span style={{color:'red'}}>默认图层和复合图层（合成器线程）</span>交给<span style={{color:'red'}}>GPU进程</span>，GPU进程再将各个图层合成（composite），最后显示出页面</li>
               </ul>
             </ListCard>
           </li>

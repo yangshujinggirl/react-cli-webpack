@@ -133,6 +133,17 @@ module.exports= {
     historyApiFallback: true,//解决使用browerhistory，刷新后404问题
     proxy: {
       '/api': 'http://192.168.1.2:8000/api/stock',
+      '/testNginx': {
+        target: 'http://127.0.0.1:8010',
+          changeOrigin: true,
+          secure: false,
+          rewrite: (path) => path.replace(/^\/testNginx/, ""),
+          bypass(req, res, options) {
+            const proxyUrl = new URL(req.url || "", options.target)
+              ?.href;
+            res.setHeader("x-proxyUrl", proxyUrl);
+          }
+      }
     },
   }
 }

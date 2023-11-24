@@ -1,3 +1,10 @@
+/*
+ * @Author: 杨静 jing.yang03@weimob.com
+ * @Date: 2023-03-15 12:47:40
+ * @LastEditors: 杨静 jing.yang03@weimob.com
+ * @LastEditTime: 2023-11-01 15:49:12
+ * @Description:
+ */
 import React from 'react';
 import { Button } from 'antd';
 import { unstable_batchedUpdates } from 'react-dom';
@@ -46,6 +53,7 @@ class TestRouterMod extends React.Component{
       console.log('testState-after3',this.state.num2);
   }
   render(){
+    console.log('render-num1',this.state.num1)
     console.log('render-num2',this.state.num2)
     return <div>
       <h2>setState同步还是异步？</h2>
@@ -57,7 +65,8 @@ class TestRouterMod extends React.Component{
           <h3>step2：Demo1</h3>
           <Button onClick={this.testAsync}>setState的异步</Button>
           <Button onClick={this.testState}>setState的同步</Button>
-          <h2>{this.state.num2}</h2>
+          <h2>异步state:{this.state.num1}</h2>
+          <h2>同步state:{this.state.num2}</h2>
         </>
       </ContentCard>
 

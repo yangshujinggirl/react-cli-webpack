@@ -14,6 +14,7 @@ const ThreadMod = lazy(()=>import(/* webpackChunkName: 'threadMod' */ '../pages/
 const EventLoopMod = lazy(()=>import(/* webpackChunkName: 'eventLoopMod' */ '../pages/EventLoop'));
 const SetStateMod = lazy(()=>import(/* webpackChunkName: 'setStateMod' */ '../pages/SetStateMod'));
 const SpecialLayout = lazy(()=>import(/* webpackChunkName: 'setStateMod' */ '../pages/SpecialLayout'));
+const Algepa = lazy(()=>import(/* webpackChunkName: 'algepa' */ '../pages/Algepa'));
 // const Login = lazy(()=>import(/* webpackChunkName: 'testRouterMod' */ '../pages/Login'));
 // const NotFound = lazy(()=>import(/* webpackChunkName: 'notFound' */ '../pages/NotFound'));
 //createHashRouter打包后不会出现路由404问题
@@ -97,6 +98,11 @@ const menuData =[
     key:'setState',
     label:'setState同步异步',
     element:lazyLoad(SetStateMod)
+  },{
+    path:'algepa',
+    key:'algepa',
+    label:'代数',
+    element:lazyLoad(Algepa)
   }
 ]
 
